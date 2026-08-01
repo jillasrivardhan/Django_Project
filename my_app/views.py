@@ -16,6 +16,7 @@ def login(request):
             return  redirect('dashboard')
         except:
             return render(request, 'login.html', {'msg': 'Invalid email or password'})
+    return render(request, 'login.html')
            
 
 
@@ -36,4 +37,4 @@ def dashboard(request):
 
 def logout(request):
     request.session.flush()
-    return redirect('login')
+    return redirect('index')
