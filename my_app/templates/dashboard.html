@@ -5,12 +5,222 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Dashboard</title>
 </head>
+<style>
+  
+</style>
 <body>
    
-   <h2>Dashboard</h2>
+   <!-- <h2>Dashboard</h2>
    <p>Welcome, {{ user.name }}!</p>
 
-   <a href="{% url 'logout' %}">Logout</a>
+   <a href="{% url 'logout' %}">Logout</a> -->
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<style>
+   *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f4f7fc;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:240px;
+    height:100vh;
+    background:#1e293b;
+    color:white;
+    padding:30px;
+    position:fixed;
+}
+
+.sidebar h2{
+    margin-bottom:40px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:14px;
+    margin-bottom:12px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:#334155;
+}
+
+/* Main Content */
+
+.main{
+    margin-left:240px;
+    width:calc(100% - 240px);
+    padding:40px;
+}
+
+/* Header */
+
+.header{
+    margin-bottom:40px;
+}
+
+.header h1{
+    color:#1e293b;
+}
+
+.header p{
+    color:#666;
+}
+
+/* Cards */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card h3{
+    color:#555;
+    margin-bottom:15px;
+}
+
+.card p{
+    font-size:20px;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+/* Activity */
+
+.activity{
+    margin-top:40px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.activity h2{
+    margin-bottom:20px;
+}
+
+.activity ul{
+    padding-left:20px;
+}
+
+.activity li{
+    margin-bottom:12px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+}
+
+.main{
+    margin-left:0;
+    width:100%;
+}
+
+body{
+    flex-direction:column;
+}
+
+}
+</style>
+<body>
+
+<div class="sidebar">
+
+    <h2>My App</h2>
+
+    <a href="#">🏠 Dashboard</a>
+    <a href="#">👤 Profile</a>
+    <a href="#">⚙ Settings</a>
+    <a href="#">📊 Reports</a>
+    <a href="{% url 'logout' %}">🚪 Logout</a>
+
+</div>
+
+<div class="main">
+
+    <div class="header">
+
+        <div>
+            <h1>Welcome, {{ user.name }} 👋</h1>
+            <p>Have a productive day.</p>
+        </div>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Name</h3>
+            <p>{{ user.name }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Email</h3>
+            <p>{{ user.email }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Date</h3>
+            <p>{% now "d M Y" %}</p>
+        </div>
+
+        <div class="card">
+            <h3>Status</h3>
+            <p>Logged In ✅</p>
+        </div>
+
+    </div>
+
+    <div class="activity">
+
+        <h2>Recent Activity</h2>
+
+        <ul>
+            <li>✔ Logged into your account</li>
+            <li>✔ Dashboard loaded successfully</li>
+            <li>✔ Welcome to your application!</li>
+        </ul>
+
+    </div>
+
+</div>
+
+</body>
+
    
 </body>
 </html>

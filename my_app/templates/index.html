@@ -5,10 +5,207 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>home page</title>
 </head>
+<style>
+   *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+}
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.content{
+
+    width:700px;
+
+    text-align:center;
+
+    color:white;
+
+    padding:60px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+.content h1{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+.content p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:#f1f1f1;
+
+    margin-bottom:45px;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+
+.buttons a{
+
+    text-decoration:none;
+
+    padding:15px 40px;
+
+    border-radius:8px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.register-btn{
+
+    background:transparent;
+    border:2px solid white;
+
+    color:white;
+
+}
+
+.register-btn:hover{
+
+    background:white;
+    color:#333;
+    transform:translateY(-4px);
+
+}
+
+.login-btn{
+
+    border:2px solid white;
+
+    color:white;
+
+}
+
+.login-btn:hover{
+
+    background:white;
+
+    color:#333;
+
+    transform:translateY(-4px);
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.content{
+
+    width:90%;
+
+    padding:40px 25px;
+
+}
+
+.content h1{
+
+    font-size:38px;
+
+}
+
+.content p{
+
+    font-size:17px;
+
+}
+
+.buttons{
+
+    flex-direction:column;
+
+}
+
+.buttons a{
+
+    width:100%;
+
+}
+
+}
+</style>
+
 <body>
-   <h1>welcome to my home page</h1>
-   <a href="{% url 'Register' %}">Go to Register</a>
-   <a href="{% url 'Login' %}">Go to Login</a>
+   <div class="hero">
+
+    <div class="content">
+
+        <h1>Welcome to My Website</h1>
+
+        <p>
+            Build, manage, and access your account securely from anywhere.
+            Register if you're new or log in to continue your journey.
+        </p>
+
+        <div class="buttons">
+
+            <a href="{% url 'Register' %}" class="register-btn">
+                Register
+            </a>
+
+            <a href="{% url 'Login' %}" class="login-btn">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
